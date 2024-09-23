@@ -1,3 +1,5 @@
+using System.Runtime.CompilerServices;
+
 namespace puirchr
 {
     public partial class Form1 : Form
@@ -7,35 +9,183 @@ namespace puirchr
         public Form1()
         {
             InitializeComponent();
+            textBox1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button1.Visible = false;
             answer = new int[11];
         }
-        
+
         // в следующей функции меняется цвет кнопки в зависимости от выбранного пользователем ответа.
         // эта функция используется только при возврате на предыдущий вопрос
+        void start()
+        {
+            textBox1.Visible = false;
+            button2.Visible = false;
+            button3.Visible = false;
+            button4.Visible = false;
+            button1.Visible = false;
+            button7.Visible = true;
+            button8.Visible = true;
+            button9.Visible = true;
+            button5.Visible = false;
+            button6.Visible = false;
+        }
+
         void colorchange1(int n)
         {
             switch (answer[n])
             {
                 case 1:
-                    button3.BackColor = Color.Yellow;
+                    button3.BackColor = Color.Gray;
                     button4.BackColor = Control.DefaultBackColor;
                     button2.BackColor = Control.DefaultBackColor;
                     break;
                 case 2:
                     button3.BackColor = Control.DefaultBackColor;
-                    button4.BackColor = Color.Yellow;
+                    button4.BackColor = Color.Gray;
                     button2.BackColor = Control.DefaultBackColor;
                     break;
                 case 3:
                     button3.BackColor = Control.DefaultBackColor;
                     button4.BackColor = Control.DefaultBackColor;
-                    button2.BackColor = Color.Yellow;
+                    button2.BackColor = Color.Gray;
                     break;
             }
         }
 
+
         void show1(int n)
         {
+            textBox1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            button4.Visible = true;
+            button1.Visible = true;
+            button7.Visible = false;
+            button8.Visible = false;
+            button9.Visible = false;
+            textBox2.Visible = false;
+
+            switch (n)
+            {
+                case 0:
+                    textBox1.Text = "Вопрос 1";
+                    break;
+                case 1:
+                    textBox1.Text = "Вопрос 2";
+                    break;
+                case 2:
+                    textBox1.Text = "Вопрос 3";
+                    break;
+                case 3:
+                    textBox1.Text = "Вопрос 4";
+                    break;
+                case 4:
+                    textBox1.Text = "Вопрос 5";
+                    break;
+                case 5:
+                    textBox1.Text = "Вопрос 6";
+                    break;
+                case 6:
+                    textBox1.Text = "Вопрос 7";
+                    break;
+                case 7:
+                    textBox1.Text = "Вопрос 8";
+                    break;
+                case 8:
+                    textBox1.Text = "Вопрос 9";
+                    break;
+                case 9:
+                    textBox1.Text = "Вопрос 10";
+                    textBox1.Visible = true;
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    button5.Visible = false;
+                    break;
+                case 10:
+                    textBox1.Visible = false;
+                    button2.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                    button5.Visible = true;
+                    break;
+            }
+        }
+
+        void show2(int n)
+        {
+            textBox1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            button4.Visible = true;
+            button1.Visible = true;
+            button7.Visible = false;
+            button8.Visible = false;
+            button9.Visible = false;
+            textBox2.Visible = false;
+
+            switch (n)
+            {
+                case 0:
+                    textBox1.Text = "Вопрос 1";
+                    break;
+                case 1:
+                    textBox1.Text = "Вопрос 2";
+                    break;
+                case 2:
+                    textBox1.Text = "Вопрос 3";
+                    break;
+                case 3:
+                    textBox1.Text = "Вопрос 4";
+                    break;
+                case 4:
+                    textBox1.Text = "Вопрос 5";
+                    break;
+                case 5:
+                    textBox1.Text = "Вопрос 6";
+                    break;
+                case 6:
+                    textBox1.Text = "Вопрос 7";
+                    break;
+                case 7:
+                    textBox1.Text = "Вопрос 8";
+                    break;
+                case 8:
+                    textBox1.Text = "Вопрос 9";
+                    break;
+                case 9:
+                    textBox1.Text = "Вопрос 10";
+                    textBox1.Visible = true;
+                    button2.Visible = true;
+                    button3.Visible = true;
+                    button4.Visible = true;
+                    button5.Visible = false;
+                    break;
+                case 10:
+                    textBox1.Visible = false;
+                    button2.Visible = false;
+                    button3.Visible = false;
+                    button4.Visible = false;
+                    button5.Visible = true;
+                    break;
+            }
+        }
+
+        void show3(int n)
+        {
+            textBox1.Visible = true;
+            button2.Visible = true;
+            button3.Visible = true;
+            button4.Visible = true;
+            button1.Visible = true;
+            button7.Visible = false;
+            button8.Visible = false;
+            button9.Visible = false;
+            textBox2.Visible = false;
+
             switch (n)
             {
                 case 0:
@@ -194,6 +344,31 @@ namespace puirchr
                 textBox2.Text = "Ваш результат 3";
                 textBox2.Visible = true;
             }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            n = 0;
+            start();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            show1(n);
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            show2(n);
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            show3(n);
+        }
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
