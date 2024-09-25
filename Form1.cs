@@ -17,6 +17,32 @@ namespace puirchr
             answer = new int[11];
         }
 
+        void ResetAnswers()
+        {
+            // Сбрасываем массив ответов до значений по умолчанию (0)
+            for (int i = 0; i < answer.Length; i++)
+            {
+                answer[i] = 0;
+            }
+
+            // Сбрасываем цвета всех кнопок
+            button3.BackColor = Control.DefaultBackColor;
+            button4.BackColor = Control.DefaultBackColor;
+            button2.BackColor = Control.DefaultBackColor;
+        }
+
+        private void StartNewTest()
+        {
+            // Сбрасываем массив ответов
+            ResetAnswers();
+
+            // Устанавливаем текущий вопрос на первый
+            n = 0;
+
+            // Обновляем интерфейс для начала нового теста
+            showQuestion(n);
+        }
+
         // в следующей функции меняется цвет кнопки в зависимости от выбранного пользователем ответа.
         // эта функция используется только при возврате на предыдущий вопрос
         void start()
@@ -35,29 +61,35 @@ namespace puirchr
 
         void colorchange1(int n)
         {
+            // Сбрасываем цвета всех кнопок перед проверкой
+            button3.BackColor = Control.DefaultBackColor;
+            button4.BackColor = Control.DefaultBackColor;
+            button2.BackColor = Control.DefaultBackColor;
+
+            // В зависимости от выбранного ответа подсвечиваем соответствующую кнопку
             switch (answer[n])
             {
                 case 1:
-                    button3.BackColor = Color.Gray;
-                    button4.BackColor = Control.DefaultBackColor;
-                    button2.BackColor = Control.DefaultBackColor;
+                    button3.BackColor = Color.Gray;  // Подсвечиваем кнопку 1
                     break;
                 case 2:
-                    button3.BackColor = Control.DefaultBackColor;
-                    button4.BackColor = Color.Gray;
-                    button2.BackColor = Control.DefaultBackColor;
+                    button4.BackColor = Color.Gray;  // Подсвечиваем кнопку 2
                     break;
                 case 3:
-                    button3.BackColor = Control.DefaultBackColor;
-                    button4.BackColor = Control.DefaultBackColor;
-                    button2.BackColor = Color.Gray;
+                    button2.BackColor = Color.Gray;  // Подсвечиваем кнопку 3
+                    break;
+                default:
+                    // Ничего не делать, если нет ответа
                     break;
             }
         }
 
 
-        void show1(int n)
+
+
+        void showQuestion(int n)
         {
+            // Показываем необходимые элементы
             textBox1.Visible = true;
             button2.Visible = true;
             button3.Visible = true;
@@ -68,236 +100,68 @@ namespace puirchr
             button9.Visible = false;
             textBox2.Visible = false;
 
-            switch (n)
+            // Меняем текст в зависимости от номера вопроса
+            if (n < 10)
             {
-                case 0:
-                    textBox1.Text = "Вопрос 1";
-                    break;
-                case 1:
-                    textBox1.Text = "Вопрос 2";
-                    break;
-                case 2:
-                    textBox1.Text = "Вопрос 3";
-                    break;
-                case 3:
-                    textBox1.Text = "Вопрос 4";
-                    break;
-                case 4:
-                    textBox1.Text = "Вопрос 5";
-                    break;
-                case 5:
-                    textBox1.Text = "Вопрос 6";
-                    break;
-                case 6:
-                    textBox1.Text = "Вопрос 7";
-                    break;
-                case 7:
-                    textBox1.Text = "Вопрос 8";
-                    break;
-                case 8:
-                    textBox1.Text = "Вопрос 9";
-                    break;
-                case 9:
-                    textBox1.Text = "Вопрос 10";
-                    textBox1.Visible = true;
-                    button2.Visible = true;
-                    button3.Visible = true;
-                    button4.Visible = true;
-                    button5.Visible = false;
-                    break;
-                case 10:
-                    textBox1.Visible = false;
-                    button2.Visible = false;
-                    button3.Visible = false;
-                    button4.Visible = false;
-                    button5.Visible = true;
-                    break;
-            }
-        }
-
-        void show2(int n)
-        {
-            textBox1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button4.Visible = true;
-            button1.Visible = true;
-            button7.Visible = false;
-            button8.Visible = false;
-            button9.Visible = false;
-            textBox2.Visible = false;
-
-            switch (n)
-            {
-                case 0:
-                    textBox1.Text = "Вопрос 1";
-                    break;
-                case 1:
-                    textBox1.Text = "Вопрос 2";
-                    break;
-                case 2:
-                    textBox1.Text = "Вопрос 3";
-                    break;
-                case 3:
-                    textBox1.Text = "Вопрос 4";
-                    break;
-                case 4:
-                    textBox1.Text = "Вопрос 5";
-                    break;
-                case 5:
-                    textBox1.Text = "Вопрос 6";
-                    break;
-                case 6:
-                    textBox1.Text = "Вопрос 7";
-                    break;
-                case 7:
-                    textBox1.Text = "Вопрос 8";
-                    break;
-                case 8:
-                    textBox1.Text = "Вопрос 9";
-                    break;
-                case 9:
-                    textBox1.Text = "Вопрос 10";
-                    textBox1.Visible = true;
-                    button2.Visible = true;
-                    button3.Visible = true;
-                    button4.Visible = true;
-                    button5.Visible = false;
-                    break;
-                case 10:
-                    textBox1.Visible = false;
-                    button2.Visible = false;
-                    button3.Visible = false;
-                    button4.Visible = false;
-                    button5.Visible = true;
-                    break;
-            }
-        }
-
-        void show3(int n)
-        {
-            textBox1.Visible = true;
-            button2.Visible = true;
-            button3.Visible = true;
-            button4.Visible = true;
-            button1.Visible = true;
-            button7.Visible = false;
-            button8.Visible = false;
-            button9.Visible = false;
-            textBox2.Visible = false;
-
-            switch (n)
-            {
-                case 0:
-                    textBox1.Text = "Вопрос 1";
-                    break;
-                case 1:
-                    textBox1.Text = "Вопрос 2";
-                    break;
-                case 2:
-                    textBox1.Text = "Вопрос 3";
-                    break;
-                case 3:
-                    textBox1.Text = "Вопрос 4";
-                    break;
-                case 4:
-                    textBox1.Text = "Вопрос 5";
-                    break;
-                case 5:
-                    textBox1.Text = "Вопрос 6";
-                    break;
-                case 6:
-                    textBox1.Text = "Вопрос 7";
-                    break;
-                case 7:
-                    textBox1.Text = "Вопрос 8";
-                    break;
-                case 8:
-                    textBox1.Text = "Вопрос 9";
-                    break;
-                case 9:
-                    textBox1.Text = "Вопрос 10";
-                    textBox1.Visible = true;
-                    button2.Visible = true;
-                    button3.Visible = true;
-                    button4.Visible = true;
-                    button5.Visible = false;
-                    break;
-                case 10:
-                    textBox1.Visible = false;
-                    button2.Visible = false;
-                    button3.Visible = false;
-                    button4.Visible = false;
-                    button5.Visible = true;
-                    break;
-            }
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            answer[n] = 3;
-            n++;
-            if (n > 10) n = 10;
-
-
-            // тут проверяется, отвечал ли уже пользователь на текущий вопрос.
-            // например, если пользователь дважды вернулся назад, в обоих этих вопросах должен
-            // подсвечиваться выбранный вариант ответа
-            if (answer[n] != 0)
-            {
-                colorchange1(n);
+                textBox1.Text = $"Вопрос {n + 1}";
             }
             else
             {
+                // Если это последний вопрос, изменяем видимость кнопок
+                textBox1.Visible = false;
+                button2.Visible = false;
+                button3.Visible = false;
+                button4.Visible = false;
+                button5.Visible = true;
+            }
+        }
+
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            answer[n] = 3;  // сохраняем выбранный ответ (3-й вариант)
+
+            // Увеличиваем индекс вопроса, если не достигли последнего вопроса
+            if (n < 10) n++;
+
+            // Проверяем, есть ли уже выбранный ответ для следующего вопроса
+            if (answer[n] != 0)
+            {
+                colorchange1(n);  // если ответ уже был выбран, меняем цвет кнопок
+            }
+            else
+            {
+                // если ответ не выбран, сбрасываем цвет кнопок
                 button3.BackColor = Control.DefaultBackColor;
                 button4.BackColor = Control.DefaultBackColor;
                 button2.BackColor = Control.DefaultBackColor;
             }
-            show1(n);
+
+            // Используем функцию showQuestion для отображения следующего вопроса
+            showQuestion(n);
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            n--;
-            if (n < 0) n = 0;
-            show1(n);
+            if (n > 0) n--;
+            showQuestion(n);
             colorchange1(n);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             answer[n] = 1;
-            n++;
-            if (n > 10) n = 10;
-            if (answer[n] != 0)
-            {
-                colorchange1(n);
-            }
-            else
-            {
-                button3.BackColor = Control.DefaultBackColor;
-                button4.BackColor = Control.DefaultBackColor;
-                button2.BackColor = Control.DefaultBackColor;
-            }
-            show1(n);
+            if (n < 10) n++;
+            showQuestion(n);
+            if (answer[n] != 0) colorchange1(n);
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
             answer[n] = 2;
-            n++;
-            if (n > 10) n = 10;
-            if (answer[n] != 0)
-            {
-                colorchange1(n);
-            }
-            else
-            {
-                button3.BackColor = Control.DefaultBackColor;
-                button4.BackColor = Control.DefaultBackColor;
-                button2.BackColor = Control.DefaultBackColor;
-            }
-            show1(n);
+            if (n < 10) n++;
+            showQuestion(n);
+            if (answer[n] != 0) colorchange1(n);
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -348,23 +212,25 @@ namespace puirchr
 
         private void button6_Click(object sender, EventArgs e)
         {
-            n = 0;
+            // Начинаем новый тест
+            
+            StartNewTest();
             start();
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-            show1(n);
+            showQuestion(n);
         }
 
         private void button8_Click(object sender, EventArgs e)
         {
-            show2(n);
+            showQuestion(n);
         }
 
         private void button9_Click(object sender, EventArgs e)
         {
-            show3(n);
+            showQuestion(n);
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
