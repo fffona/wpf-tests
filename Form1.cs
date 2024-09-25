@@ -30,6 +30,13 @@ namespace puirchr
             button4.BackColor = Control.DefaultBackColor;
             button2.BackColor = Control.DefaultBackColor;
         }
+        void ResetButtonColors()
+        {
+            // Сбрасываем цвета всех кнопок
+            button3.BackColor = Control.DefaultBackColor;
+            button4.BackColor = Control.DefaultBackColor;
+            button2.BackColor = Control.DefaultBackColor;
+        }
 
         private void StartNewTest()
         {
@@ -89,6 +96,7 @@ namespace puirchr
 
         void showQuestion(int n)
         {
+            ResetButtonColors();
             // Показываем необходимые элементы
             textBox1.Visible = true;
             button2.Visible = true;
