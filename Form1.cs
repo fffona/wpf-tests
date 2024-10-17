@@ -1,4 +1,6 @@
 using System.Runtime.CompilerServices;
+using Bunifu.UI.WinForms;
+using Bunifu.Licensing;
 
 namespace puirchr
 {
@@ -260,6 +262,7 @@ namespace puirchr
         {
             ResetButtonColors();
             // Показываем необходимые элементы
+            label1.Visible = false;
             textBox1.Visible = true;
             button2.Visible = true;
             button3.Visible = true;
@@ -459,9 +462,10 @@ namespace puirchr
         private void button6_Click(object sender, EventArgs e)
         {
             // Начинаем новый тест
-            
+
             StartNewTest();
             start();
+            label1.Visible = true   ;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -479,6 +483,16 @@ namespace puirchr
             showQuestion3(n);
         }
         private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
 
         }
