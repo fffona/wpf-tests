@@ -2,11 +2,11 @@ using System.Runtime.CompilerServices;
 
 namespace puirchr
 {
-    public partial class Form1 : Form
+    public partial class Form1Test2 : Form
     {
         int n = 0;
         int[] answer; // массив с выбранными вариантами ответов
-        public Form1()
+        public Form1Test2()
         {
             InitializeComponent();
             answer = new int[21];
