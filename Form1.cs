@@ -1,4 +1,6 @@
 using System.Runtime.CompilerServices;
+using Bunifu.UI.WinForms;
+using Bunifu.Licensing;
 
 namespace puirchr
 {
