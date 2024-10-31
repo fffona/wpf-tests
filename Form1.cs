@@ -15,7 +15,6 @@ namespace puirchr
             button3.Visible = false;
             button4.Visible = false;
             button1.Visible = false;
-            
         }
 
         void ResetAnswers()
@@ -67,6 +66,8 @@ namespace puirchr
             button9.Visible = true;
             button5.Visible = false;
             button6.Visible = false;
+            label1.Visible = true;
+            label3.Visible = false;
         }
 
         void colorchange1(int n)
@@ -99,7 +100,7 @@ namespace puirchr
         // Тест 1
         void showQuestion(int n)
         {
-            
+
 
             ResetButtonColors();
             // Показываем необходимые элементы
@@ -112,13 +113,15 @@ namespace puirchr
             button8.Visible = false;
             button9.Visible = false;
             textBox2.Visible = false;
-
+            label1.Visible = false;
+            label3.Text = "Тест 1";
+            label3.Visible = true;
 
             // Меняем текст в зависимости от номера вопроса
             if (n < 20)
             {
-                textBox1.Text = $"Вопрос {n + 1} из 10";
-                if (n == 0){
+                if (n == 0)
+                {
                     textBox1.Text = $"Вопрос {n + 1} из 10. Достаточно ли у Вас профессиональных знаний в избранной Вами области деятельности? ";
                 }
                 if (n == 1)
@@ -161,6 +164,42 @@ namespace puirchr
                 {
                     textBox1.Text = $"Вопрос {n + 1} из 10. Дадите ли Вы21312312 твердое обещание, если у Вас нет уверенности в том, что сумеете его выполнить? ";
                 }
+                if (n == 11)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Достаточно ли у Вас профессиональных знаний в избранной Вами области деятельности? ";
+                }
+                if (n == 12)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Способны ли Вы распределить работу среди подчиненных, оставив себе наиболее важную? ";
+                }
+                if (n == 13)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Сможете ли Вы решить многообразные проблемы управления (формирование портфеля заказов, прогнозирование финансового состояния и рентабельности отдельных изделий, применение рациональной системы оплаты труда и т.п.)?";
+                }
+                if (n == 14)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Доверяете ли Вы себе полностью или будете прибегать к помощи специалистов по отдельным вопросам? ";
+                }
+                if (n == 15)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Будете ли Вы контролировать выполнение поручений? ";
+                }
+                if (n == 16)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 10. Будете ли Вы доверять Вашим подчиненным выбор метода выполнения работы? ";
+                }
+                if (n == 17)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 20. Считаете ли Вы расходование средств на повышение квалификации выгодным вложением средств? ";
+                }
+                if (n == 18)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 20. Имеете ли Вы достаточно ясное представление о своей деятельности на ближайший год или два? ";
+                }
+                if (n == 19)
+                {
+                    textBox1.Text = $"Вопрос {n + 1} из 20. Если Вам придется делить доход с вашим товарищем и партнером, уверены ли Вы, что сохраните с ним дружеские отношения? ";
+                }
 
             }
             else
@@ -190,14 +229,15 @@ namespace puirchr
             button8.Visible = false;
             button9.Visible = false;
             textBox2.Visible = false;
+            label1.Visible = false;
+            label3.Text = "Тест 2";
+            label3.Visible = true;
 
-            
 
 
             // Меняем текст в зависимости от номера вопроса
             if (n < 21)
             {
-                textBox1.Text = $"Вопрос {n + 1} 11111";
                 if (n == 0)
                 {
                     textBox1.Text = $"Вопрос {n + 1} из 21. Достаточно л67676767и у Вас профессиональных знаний в избранной Вами области деятельности? ";
@@ -242,7 +282,7 @@ namespace puirchr
                 {
                     textBox1.Text = $"Вопрос {n + 1} из 21. Дадите ли23232 Вы твердое обещание, если у Вас нет уверенности в том, что сумеете его выполнить? ";
                 }
-                
+
             }
             else
             {
@@ -270,6 +310,9 @@ namespace puirchr
             button8.Visible = false;
             button9.Visible = false;
             textBox2.Visible = false;
+            label1.Visible = false;
+            label3.Text = "Тест 3";
+            label3.Visible = true;
 
             // Меняем текст в зависимости от номера вопроса
             if (n < 10)
@@ -313,7 +356,13 @@ namespace puirchr
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (n > 0) n--;
+            if (n > -1) n--;
+            if (n == -1)
+            {
+                StartNewTest();
+                start();
+                return;
+            };
             showQuestion(n);
             colorchange1(n);
         }
@@ -349,89 +398,89 @@ namespace puirchr
         {
             // подсчет баллов за ответы (ждем исследования Клима)
             int correct = 0;
-            if (answer[0] == 1) correct+=8;
-            if (answer[0] == 2) correct+=0;
-            if (answer[0] == 3) correct+=4;
+            if (answer[0] == 1) correct += 8;
+            if (answer[0] == 2) correct += 0;
+            if (answer[0] == 3) correct += 4;
 
-            if (answer[1] == 1) correct+=4;
-            if (answer[1] == 2) correct+=0;
-            if (answer[1] == 3) correct+=2;
+            if (answer[1] == 1) correct += 4;
+            if (answer[1] == 2) correct += 0;
+            if (answer[1] == 3) correct += 2;
 
-            if (answer[2] == 1) correct+=8;
-            if (answer[2] == 2) correct+=0;
-            if (answer[2] == 3) correct+=4;
+            if (answer[2] == 1) correct += 8;
+            if (answer[2] == 2) correct += 0;
+            if (answer[2] == 3) correct += 4;
 
-            if (answer[3] == 1) correct+=0;
-            if (answer[3] == 2) correct+=8;
-            if (answer[3] == 3) correct+=6;
+            if (answer[3] == 1) correct += 0;
+            if (answer[3] == 2) correct += 8;
+            if (answer[3] == 3) correct += 6;
 
-            if (answer[4] == 1) correct+=4;
-            if (answer[4] == 2) correct+=0;
-            if (answer[4] == 3) correct+=2;
+            if (answer[4] == 1) correct += 4;
+            if (answer[4] == 2) correct += 0;
+            if (answer[4] == 3) correct += 2;
 
-            if (answer[5] == 1) correct+=4;
-            if (answer[5] == 2) correct+=0;
-            if (answer[5] == 3) correct+=2;
+            if (answer[5] == 1) correct += 4;
+            if (answer[5] == 2) correct += 0;
+            if (answer[5] == 3) correct += 2;
 
-            if (answer[6] == 1) correct+=4;
-            if (answer[6] == 2) correct+=0;
-            if (answer[6] == 3) correct+=2;
+            if (answer[6] == 1) correct += 4;
+            if (answer[6] == 2) correct += 0;
+            if (answer[6] == 3) correct += 2;
 
-            if (answer[7] == 1) correct+=8;
-            if (answer[7] == 2) correct+=0;
-            if (answer[7] == 3) correct+=4;
+            if (answer[7] == 1) correct += 8;
+            if (answer[7] == 2) correct += 0;
+            if (answer[7] == 3) correct += 4;
 
-            if (answer[8] == 1) correct+=2;
-            if (answer[8] == 2) correct+=0;
-            if (answer[8] == 3) correct+=4;
+            if (answer[8] == 1) correct += 2;
+            if (answer[8] == 2) correct += 0;
+            if (answer[8] == 3) correct += 4;
 
-            if (answer[9] == 1) correct+=0;
-            if (answer[9] == 2) correct+=4;
-            if (answer[0] == 2) correct+=2;
+            if (answer[9] == 1) correct += 0;
+            if (answer[9] == 2) correct += 4;
+            if (answer[0] == 2) correct += 2;
 
-            if (answer[10] == 1) correct+=8;
-            if (answer[10] == 2) correct+=0;
-            if (answer[10] == 3) correct+=4;
+            if (answer[10] == 1) correct += 8;
+            if (answer[10] == 2) correct += 0;
+            if (answer[10] == 3) correct += 4;
 
-            if (answer[11] == 1) correct+=8;
-            if (answer[11] == 2) correct+=0;
-            if (answer[11] == 3) correct+=4;
+            if (answer[11] == 1) correct += 8;
+            if (answer[11] == 2) correct += 0;
+            if (answer[11] == 3) correct += 4;
 
-            if (answer[12] == 1) correct+=8;
-            if (answer[12] == 2) correct+=0;
-            if (answer[12] == 3) correct+=4;
+            if (answer[12] == 1) correct += 8;
+            if (answer[12] == 2) correct += 0;
+            if (answer[12] == 3) correct += 4;
 
-            if (answer[13] == 1) correct+=4;
-            if (answer[13] == 2) correct+=0;
-            if (answer[13] == 3) correct+=2;
+            if (answer[13] == 1) correct += 4;
+            if (answer[13] == 2) correct += 0;
+            if (answer[13] == 3) correct += 2;
 
-            if (answer[14] == 1) correct+=4;
-            if (answer[14] == 2) correct+=0;
-            if (answer[14] == 3) correct+=2;
+            if (answer[14] == 1) correct += 4;
+            if (answer[14] == 2) correct += 0;
+            if (answer[14] == 3) correct += 2;
 
-            if (answer[15] == 1) correct+=4;
-            if (answer[15] == 2) correct+=0;
-            if (answer[15] == 3) correct+=2;
+            if (answer[15] == 1) correct += 4;
+            if (answer[15] == 2) correct += 0;
+            if (answer[15] == 3) correct += 2;
 
-            if (answer[16] == 1) correct+=4;
-            if (answer[16] == 2) correct+=0;
-            if (answer[16] == 3) correct+=2;
+            if (answer[16] == 1) correct += 4;
+            if (answer[16] == 2) correct += 0;
+            if (answer[16] == 3) correct += 2;
 
-            if (answer[17] == 1) correct+=8;
-            if (answer[17] == 2) correct+=0;
-            if (answer[17] == 3) correct+=4;
+            if (answer[17] == 1) correct += 8;
+            if (answer[17] == 2) correct += 0;
+            if (answer[17] == 3) correct += 4;
 
-            if (answer[18] == 1) correct+=8;
-            if (answer[18] == 2) correct+=0;
-            if (answer[18] == 3) correct+=4;
+            if (answer[18] == 1) correct += 8;
+            if (answer[18] == 2) correct += 0;
+            if (answer[18] == 3) correct += 4;
 
-            if (answer[19] == 1) correct+=8;
-            if (answer[19] == 2) correct+=0;
-            if (answer[19] == 3) correct+=4;
+            if (answer[19] == 1) correct += 8;
+            if (answer[19] == 2) correct += 0;
+            if (answer[19] == 3) correct += 4;
 
-            if (answer[20] == 1) correct+=4;
-            if (answer[20] == 2) correct+=0;
-            if (answer[20] == 3) correct+=2;
+            if (answer[20] == 1) correct += 4;
+            if (answer[20] == 2) correct += 0;
+            if (answer[20] == 3) correct += 2;
 
             // вывод на экран результата
             button5.Visible = false;
@@ -455,7 +504,7 @@ namespace puirchr
         }
 
 
-        
+
 
         private void button6_Click(object sender, EventArgs e)
         {
@@ -463,7 +512,7 @@ namespace puirchr
 
             StartNewTest();
             start();
-            label1.Visible = true   ;
+            label1.Visible = true;
         }
 
         private void button7_Click(object sender, EventArgs e)
@@ -491,6 +540,11 @@ namespace puirchr
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
         {
 
         }
