@@ -84,7 +84,7 @@
             questionTextBox.ReadOnly = true;
             questionTextBox.Size = new Size(532, 86);
             questionTextBox.TabIndex = 20;
-            questionTextBox.Text = "Вопрос 1 из 10. Достаточно ли у Вас профессиональных знаний в избранной Вами области деятельности?";
+            questionTextBox.Text = "Вопрос 1 из 21. Достаточно ли у Вас профессиональных знаний в избранной Вами области деятельности?";
             questionTextBox.TextAlign = HorizontalAlignment.Center;
             // 
             // noButton
