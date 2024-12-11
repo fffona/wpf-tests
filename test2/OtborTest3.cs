@@ -164,7 +164,7 @@ namespace puirchr
         {
             if (n == 0) // если на первом вопросе нажать "назад", то откроется меню теста
             {
-                Otbor otbormenu = new Otbor();
+                MainForm otbormenu = new MainForm();
                 otbormenu.Show();
                 Close();
             };
@@ -292,7 +292,7 @@ namespace puirchr
 
         private void backToMenuButton_Click(object sender, EventArgs e)
         {
-            Otbor otbormenu = new Otbor();
+            MainForm otbormenu = new MainForm();
             otbormenu.Show();
             Close();
         }

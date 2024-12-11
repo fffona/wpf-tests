@@ -164,8 +164,8 @@ namespace puirchr
         {
             if (n == 0) // если на первом вопросе нажать "назад", то откроется меню теста
             {
-                delegateMenu delegatemenu = new delegateMenu();
-                delegatemenu.Show();
+                MainForm otbormenu = new MainForm();
+                otbormenu.Show();
                 Close();
             };
             if (n == 20)
@@ -292,8 +292,8 @@ namespace puirchr
 
         private void backToMenuButton_Click(object sender, EventArgs e)
         {
-            delegateMenu delegatemenu = new delegateMenu();
-            delegatemenu.Show();
+            MainForm mainmenu = new MainForm();
+            mainmenu.Show();
             Close();
         }
     }

@@ -170,8 +170,8 @@ namespace puirchr
         {
             if (n == 0) // если на первом вопросе нажать "назад", то откроется меню теста
             {
-                delegateMenu delegatemenu = new delegateMenu();
-                delegatemenu.Show();
+                MainForm otbormenu = new MainForm();
+                otbormenu.Show();
                 Close();
             };
             if (n == 21)
@@ -296,10 +296,15 @@ namespace puirchr
             }
         }
 
-        private void backToMenuButton_Click(object sender, EventArgs e)
+        private void delegateTest1_Load(object sender, EventArgs e)
         {
-            delegateMenu delegatemenu = new delegateMenu();
-            delegatemenu.Show();
+
+        }
+
+        private void backToMenuButton_Click_1(object sender, EventArgs e)
+        {
+            MainForm otbormenu = new MainForm();
+            otbormenu.Show();
             Close();
         }
     }
